@@ -1,0 +1,20 @@
+object Form2: TForm2
+  Left = 480
+  Height = 240
+  Top = 178
+  Width = 320
+  Caption = 'Form2'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '1.6.0.4'
+  object Label1: TLabel
+    Left = 56
+    Height = 15
+    Top = 56
+    Width = 34
+    Caption = 'Label1'
+    ParentColor = False
+  end
+end
