@@ -16,11 +16,14 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    Label1: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure FormClose(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Label1Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -32,7 +35,7 @@ var
 
 implementation
 
- uses Unit3, unit2;
+ uses Unit3, unit2,Unit5;
 
 {$R *.lfm}
 
@@ -57,6 +60,11 @@ begin
   Application.Terminate;;
 end;
 
+procedure TMainForm.FormClose(Sender: TObject);
+begin
+ Unit1.MainForm.show;
+end;
+
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   self.Visible:=true;
@@ -67,6 +75,13 @@ procedure TMainForm.FormShow(Sender: TObject);
 begin
   self.Enabled:=true;
   self.Visible:=true;
+end;
+
+procedure TMainForm.Label1Click(Sender: TObject);
+begin
+ self.Enabled:=false;
+self.Visible := false;
+ Unit5.Form5.show;
 end;
 
 end.

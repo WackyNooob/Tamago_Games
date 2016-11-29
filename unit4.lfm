@@ -4,8 +4,8 @@ object Form4: TForm4
   Top = 142
   Width = 414
   Caption = 'Form4'
-  ClientHeight = 321
-  ClientWidth = 414
+  ClientHeight = 0
+  ClientWidth = 0
   LCLVersion = '1.6.0.4'
   object ProgressBar1: TProgressBar
     Left = 48

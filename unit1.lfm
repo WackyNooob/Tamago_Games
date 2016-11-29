@@ -5,8 +5,9 @@ object MainForm: TMainForm
   Width = 364
   BorderStyle = bsDialog
   Caption = 'Главное меню'
-  ClientHeight = 260
-  ClientWidth = 364
+  ClientHeight = 0
+  ClientWidth = 0
+  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.0.4'
@@ -45,5 +46,14 @@ object MainForm: TMainForm
     OnClick = Button4Click
     OnExit = Button4Click
     TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 15
+    Top = 240
+    Width = 203
+    Caption = 'Tamago Game. Pre-Alpha build. v0.0.1'
+    ParentColor = False
+    OnClick = Label1Click
   end
 end

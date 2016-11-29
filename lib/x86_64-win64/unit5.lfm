@@ -1,0 +1,31 @@
+object Form5: TForm5
+  Left = 458
+  Height = 270
+  Top = 171
+  Width = 368
+  Caption = 'Form5'
+  ClientHeight = 270
+  ClientWidth = 368
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '1.6.0.4'
+  object Label1: TLabel
+    Left = 8
+    Height = 232
+    Top = 8
+    Width = 304
+    AutoSize = False
+    Caption = 'О проекте:'#13#10'Название: Тамагочи;'#13#10'Жанр: Симулятор;'#13#10'Автор проекта: Краснов Дмитрий'#13#10'Версия программы: Pre-Alpha. 0.0.1;'#13#10'Язык программирования: Delphi;'#13#10'============v 0.0.1==============='#13#10'Сделано:'#13#10'+Рабочее меню с выбором персонажа;'#13#10'+Полноэкранный режим;'#13#10'В разработке:'#13#10'+Система потребностей (подключить/тест);'#13#10'+Внутриигровая валюта;'#13#10'+Здоровье персонажа;'
+    ParentColor = False
+    WordWrap = True
+  end
+  object Button1: TButton
+    Left = 128
+    Height = 25
+    Top = 245
+    Width = 75
+    Caption = 'В меню'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+end

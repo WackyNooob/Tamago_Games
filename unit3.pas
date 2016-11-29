@@ -15,9 +15,11 @@ type
   TForm3 = class(TForm)
     Button1: TButton;
     CheckBox1: TCheckBox;
+    Label1: TLabel;
     TrackBar2: TTrackBar;
     procedure Button1Click(Sender: TObject);
     procedure CheckBox1Change(Sender: TObject);
+    procedure FormClose(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -61,6 +63,11 @@ begin
   Form2.WindowState:=wsNormal;
   Form3.WindowState:=wsNormal;
   end;
+end;
+
+procedure TForm3.FormClose(Sender: TObject);
+begin
+  Unit1.MainForm.show;
 end;
 
 

@@ -36,6 +36,7 @@ type
     TimerDown: TTimer;
     now: TLabel;
     //procedure TimerDandNTimer(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure TimerSonTimer(Sender: TObject);
     procedure TimerEdaTimer(Sender: TObject);
     procedure TimerMedTimer(Sender: TObject);
@@ -163,6 +164,8 @@ begin
  //ProgressBar.Position := ProgressBar2.Position -7;
 end;
 
+
+
 procedure TForm4.TimerEdaTimer(Sender: TObject);
 begin
  ProgressBar1.Position := ProgressBar1.Position +1;
@@ -181,7 +184,7 @@ procedure TForm4.Button1Click(Sender: TObject);
 begin
  self.Enabled:=false;
  self.Visible := false;
- Unit1.Form1.show;
+ Unit1.MainForm.show;
 end;
 
 end.

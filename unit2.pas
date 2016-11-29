@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Unit4;
+  ExtCtrls;
 
 type
 
@@ -19,6 +19,7 @@ type
     Image2: TImage;
     Label1: TLabel;
     procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
@@ -32,7 +33,7 @@ var
   Form2: TForm2;
 implementation
 
-uses Unit1;
+uses Unit1,Unit4;
 
 {$R *.lfm}
 
@@ -50,6 +51,11 @@ self.Visible := false;
  Unit1.MainForm.show;
 end;
 
+procedure TForm2.FormClose(Sender: TObject);
+begin
+  Unit1.MainForm.show;
+end;
+
 procedure TForm2.FormShow(Sender: TObject);
 begin
   self.Enabled:=true;
@@ -58,7 +64,7 @@ end;
 
 procedure TForm2.Image1Click(Sender: TObject);
 begin
- new_game();
+ //new_game();
  self.Enabled:=false;
  self.Visible := false;
  Unit4.Form4.show;

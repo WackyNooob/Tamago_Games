@@ -163,6 +163,8 @@ begin
  //ProgressBar.Position := ProgressBar2.Position -7;
 end;
 
+
+
 procedure TForm4.TimerEdaTimer(Sender: TObject);
 begin
  ProgressBar1.Position := ProgressBar1.Position +1;
