@@ -13,8 +13,14 @@ type
 
   TForm1 = class(TForm)
     Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { private declarations }
   public
@@ -39,10 +45,28 @@ self.Visible := false;
  Unit2.Form2.show;
 end;
 
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+self.Enabled:=false;
+self.Visible := false;
+ Unit3.Form3.show;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  Application.Terminate;;
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   self.Visible:=true;
   self.Enabled:=true;
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  self.Enabled:=true;
+  self.Visible:=true;
 end;
 
 end.

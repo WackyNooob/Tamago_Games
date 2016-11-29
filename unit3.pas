@@ -5,15 +5,21 @@ unit Unit3;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  ComCtrls;
 
 type
 
   { TForm3 }
 
   TForm3 = class(TForm)
-    Label1: TLabel;
+    Button1: TButton;
+    CheckBox1: TCheckBox;
+    TrackBar2: TTrackBar;
+    procedure Button1Click(Sender: TObject);
+    procedure CheckBox1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { private declarations }
   public
@@ -25,13 +31,43 @@ var
 
 implementation
 
+uses Unit1,Unit2;
 {$R *.lfm}
-
-{ TForm3 }
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
+  self.Visible:=false;
+  self.Enabled:=false;
+end;
+
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+  self.Enabled:=false;
+self.Visible := false;
+ Unit1.MainForm.show;
+end;
+
+procedure TForm3.CheckBox1Change(Sender: TObject);
+begin
+ if CheckBox1.Checked = true then
+  begin
+  MainForm.WindowState:=wsMaximized;
+  Form2.WindowState:=wsMaximized;
+  Form3.WindowState:=wsMaximized;
+  end;
+ if CheckBox1.Checked = false then
+  begin
+  MainForm.WindowState:=wsNormal;
+  Form2.WindowState:=wsNormal;
+  Form3.WindowState:=wsNormal;
+  end;
+end;
+
+
+procedure TForm3.FormShow(Sender: TObject);
+begin
   self.Enabled:=true;
+  self.Visible:=true;
 end;
 
 end.

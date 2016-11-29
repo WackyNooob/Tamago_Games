@@ -1,0 +1,18 @@
+object Form5: TForm5
+  Left = 252
+  Height = 240
+  Top = 126
+  Width = 320
+  Caption = 'Form5'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '1.6.0.4'
+  object ProgressBar1: TProgressBar
+    Left = 96
+    Height = 20
+    Top = 80
+    Width = 100
+    OnContextPopup = ProgressBar1ContextPopup
+    TabOrder = 0
+  end
+end

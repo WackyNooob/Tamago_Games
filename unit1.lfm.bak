@@ -1,20 +1,49 @@
 object Form1: TForm1
-  Left = 503
-  Height = 240
-  Top = 144
-  Width = 320
+  Left = 527
+  Height = 260
+  Top = 133
+  Width = 364
+  BorderStyle = bsDialog
   Caption = 'Form1'
-  ClientHeight = 240
-  ClientWidth = 320
+  ClientHeight = 260
+  ClientWidth = 364
   OnCreate = FormCreate
+  OnShow = FormShow
   LCLVersion = '1.6.0.4'
   object Button1: TButton
     Left = 112
     Height = 25
-    Top = 56
-    Width = 75
-    Caption = 'Button1'
+    Top = 48
+    Width = 150
+    Caption = 'Новая Игра'
     OnClick = Button1Click
     TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 112
+    Height = 25
+    Top = 88
+    Width = 150
+    Caption = 'Продолжить'
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 112
+    Height = 25
+    Top = 128
+    Width = 150
+    Caption = 'Опции'
+    OnClick = Button3Click
+    TabOrder = 2
+  end
+  object Button4: TButton
+    Left = 112
+    Height = 25
+    Top = 168
+    Width = 150
+    Caption = 'Выйти'
+    OnClick = Button4Click
+    OnExit = Button4Click
+    TabOrder = 3
   end
 end

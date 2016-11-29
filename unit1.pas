@@ -9,11 +9,16 @@ uses
 
 type
 
-  { TForm1 }
+  { TMainForm }
 
-  TForm1 = class(TForm)
+  TMainForm = class(TForm)
     Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -23,7 +28,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  MainForm: TMainForm;
 
 implementation
 
@@ -31,22 +36,34 @@ implementation
 
 {$R *.lfm}
 
-{ TForm1 }
+{ TMainForm }
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TMainForm.Button1Click(Sender: TObject);
 begin
 self.Enabled:=false;
 self.Visible := false;
  Unit2.Form2.show;
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TMainForm.Button3Click(Sender: TObject);
+begin
+self.Enabled:=false;
+self.Visible := false;
+ Unit3.Form3.show;
+end;
+
+procedure TMainForm.Button4Click(Sender: TObject);
+begin
+  Application.Terminate;;
+end;
+
+procedure TMainForm.FormCreate(Sender: TObject);
 begin
   self.Visible:=true;
   self.Enabled:=true;
 end;
 
-procedure TForm1.FormShow(Sender: TObject);
+procedure TMainForm.FormShow(Sender: TObject);
 begin
   self.Enabled:=true;
   self.Visible:=true;

@@ -5,7 +5,8 @@ unit Unit2;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  ExtCtrls, Unit4;
 
 type
 
@@ -13,10 +14,14 @@ type
 
   TForm2 = class(TForm)
     Button1: TButton;
+    Edit1: TEdit;
+    Image1: TImage;
+    Image2: TImage;
     Label1: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -25,14 +30,12 @@ type
 
 var
   Form2: TForm2;
-
 implementation
 
 uses Unit1;
 
 {$R *.lfm}
 
-{ TForm2 }
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
@@ -44,13 +47,21 @@ procedure TForm2.Button1Click(Sender: TObject);
 begin
   self.Enabled:=false;
 self.Visible := false;
- Unit1.Form1.show;
+ Unit1.MainForm.show;
 end;
 
 procedure TForm2.FormShow(Sender: TObject);
 begin
   self.Enabled:=true;
   self.Visible:=true;
+end;
+
+procedure TForm2.Image1Click(Sender: TObject);
+begin
+ new_game();
+ self.Enabled:=false;
+ self.Visible := false;
+ Unit4.Form4.show;
 end;
 
 end.
