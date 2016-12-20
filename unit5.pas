@@ -50,8 +50,8 @@ end;
 
 procedure TForm5.Button1Click(Sender: TObject);
 begin
-   self.Enabled:=false;
-self.Visible := false;
+self.Enabled:=false;
+  self.Visible := false;
  Unit1.MainForm.show;
 end;
 

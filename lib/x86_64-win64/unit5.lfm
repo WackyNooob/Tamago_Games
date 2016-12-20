@@ -4,8 +4,8 @@ object Form5: TForm5
   Top = 171
   Width = 368
   Caption = 'Form5'
-  ClientHeight = 270
-  ClientWidth = 368
+  ClientHeight = 0
+  ClientWidth = 0
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.0.4'

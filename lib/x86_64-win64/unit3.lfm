@@ -1,11 +1,11 @@
 object Form3: TForm3
-  Left = 456
+  Left = 548
   Height = 262
-  Top = 170
+  Top = 80
   Width = 372
   Caption = 'Form3'
-  ClientHeight = 262
-  ClientWidth = 372
+  ClientHeight = 0
+  ClientWidth = 0
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow

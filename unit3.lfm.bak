@@ -6,6 +6,7 @@ object Form3: TForm3
   Caption = 'Form3'
   ClientHeight = 262
   ClientWidth = 372
+  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.0.4'

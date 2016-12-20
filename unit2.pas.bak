@@ -31,11 +31,14 @@ type
 
 var
   Form2: TForm2;
+
 implementation
+
+{$R *.lfm}
 
 uses Unit1,Unit4;
 
-{$R *.lfm}
+
 
 
 procedure TForm2.FormCreate(Sender: TObject);
@@ -64,11 +67,18 @@ end;
 
 procedure TForm2.Image1Click(Sender: TObject);
 begin
- new_game();
+///Включаем наш тайминг на потребности
+ {Unit4.Form4.TimerEda.Enabled:=true;
+ Unit4.Form4.TimerWater.Enabled:=true;
+ Unit4.Form4.TimerToilet.Enabled:=true;
+ Unit4.Form4.TimerWash.Enabled:=true;
+ Unit4.Form4.TimerFany.Enabled:=true;
+ Unit4.Form4.TimerSon.Enabled:=true;}
+ Unit4.Form4.newgame();
  self.Enabled:=false;
  self.Visible := false;
  Unit4.Form4.show;
-end;
+ end;
 
 end.
 

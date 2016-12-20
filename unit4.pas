@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  Buttons, ComCtrls, StdCtrls;
+  Buttons, StdCtrls, IniFiles;
 
 type
 
@@ -16,33 +16,55 @@ type
     Button1: TButton;
     Button2: TButton;
     Image1: TImage;
+    Image10: TImage;
+    Image11: TImage;
+    Image12: TImage;
+    Image13: TImage;
+    Image14: TImage;
+    Image15: TImage;
+    Image16: TImage;
+    Image17: TImage;
+    Image18: TImage;
+    Image19: TImage;
     Image2: TImage;
+    Image20: TImage;
+    Image21: TImage;
+    Image22: TImage;
     Image3: TImage;
     Image4: TImage;
-    ProgressBar1: TProgressBar;
-    ProgressBar2: TProgressBar;
-    ProgressBar3: TProgressBar;
-    TimerDandN: TTimer;
+    Image5: TImage;
+    Image6: TImage;
+    Image7: TImage;
+    Image8: TImage;
+    Image9: TImage;
+    TimerHeath: TTimer;
     TimerSon: TTimer;
+    TimerFany: TTimer;
+    TimerWash: TTimer;
+    TimerToilet: TTimer;
+    TimerWater: TTimer;
     TimerEda: TTimer;
-    TimerMed: TTimer;
-    TimerPlay: TTimer;
-    TimerNoNow: TTimer;
     start: TImage;
-    Timer1: TTimer;
     Timer2: TTimer;
     TimerComonSon: TTimer;
     TimerSplyu: TTimer;
     TimerDown: TTimer;
     now: TLabel;
-    //procedure TimerDandNTimer(Sender: TObject);
-    procedure TimerSonTimer(Sender: TObject);
+    procedure FormClose(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure newgame ();
     procedure TimerEdaTimer(Sender: TObject);
-    procedure TimerMedTimer(Sender: TObject);
-    procedure TimerPlayTimer(Sender: TObject);
-    //procedure Image5Click(Sender: TObject);
-    //procedure TimerBirdCaputTimer(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure TimerFanyTimer(Sender: TObject);
+    //procedure TimerHeathStartTimer(Sender: TObject);
+    procedure TimerHeathTimer(Sender: TObject);
+    procedure TimerSonTimer(Sender: TObject);
+    procedure TimerToiletTimer(Sender: TObject);
+    procedure TimerWashTimer(Sender: TObject);
+    procedure TimerWaterTimer(Sender: TObject);
   private
     { private declarations }
   public
@@ -52,139 +74,171 @@ type
 var
   Form4: TForm4;
   i:integer=0;
-  b:integer=0;
+  f:integer;
+  w:integer;
+  t:integer;
+  wa:integer;
+  fan:integer;
+  sleep:integer;
+  heath:integer;
   vleft:integer=0;
   right:integer=0;
   game_score:integer=0;
   cat, cat_i,zaraza,med : integer;
   score:integer=0;
   aptechka:integer=0;
-  // Старт и пауза
-i_Timer1:integer;
-i_Timer2:integer;
-i_TimerBird:integer;
-i_TimerBirdCaput:integer;
-i_TimerComonSon:integer;
-i_TimerDandN :integer;
-i_TimerDown:integer;
-i_TimerEda:integer;
-i_TimerMed:integer;
-i_TimerNoNow:integer;
-i_TimerPlay:integer;
-i_TimerSon :integer;
+  ini:TIniFile;
+  b:integer;
 
 implementation
 uses Unit1;
+
 {$R *.lfm}
 
-procedure new_game();
+procedure TForm4.newgame();
 begin
-form4.start.Visible:=true;
-form4.ProgressBar1.Position:=40;
-//form4.Gauge6.Progress:=100;
-//form4.Gauge7.Progress:=40;
-//form4.Gauge8.Progress:=100;
-form4.Timer1.Enabled:=false;
-form4.Timer2.Enabled:=false;
-form4.TimerComonSon.Enabled:=false;
-form4.TimerDandN.Enabled:=true;
-form4.TimerDown.Enabled:=false;
-form4.TimerEda.Enabled:=true;
-form4.TimerMed.Enabled:=false;
-form4.TimerNoNow.Enabled:=false;
-form4.TimerPlay.Enabled:=true;
-//form4.TimerScore.Enabled:=true;
-form4.TimerSon.Enabled:=false;
-form4.TimerSplyu.Enabled:=false;
-//form4.LabelScore.Caption:='0';
-form4.start.Enabled:=true;
-aptechka:=0;
-form4.now.Caption:='Новая игра началась';
-form4.TimerNoNow.Enabled:=true;
-score:=0;
+ aptechka:=0;
+ score:=0;
+ heath:=100;
+ f:=100;
+ w:=100;
+ t:=100;
+ wa:=100;
+ fan:=100;
+ sleep:=100;
 end;
 
-procedure Start_Game();
+///Потребности персонажа\\\
+procedure TForm4.FormShow(Sender: TObject);
 begin
-if  i_Timer1=1 then begin
-form4.Timer1.Enabled:=true;
-i_Timer1:=0;
+  image22.Width:=heath;
+  dec(heath);
+  //f:=100;
+  //w:=100;
+  //t:=100;
+  //wa:=100;
+  //fan:=100;
+  //sleep:=100;
 end;
 
-if i_Timer2=1 then begin
-form4.Timer2.Enabled:=true;
-i_Timer2:=0;
+procedure TForm4.Image2Click(Sender: TObject);
+begin
+  image6.Width:=image6.Width+50;
+  TimerEda.Enabled:=false;
+  Showmessage ('Вы покормили питомца');
+  TimerEda.Enabled:=True;
+  end;
+
+procedure TForm4.Image3Click(Sender: TObject);
+begin
+  image8.Width:=image8.Width+50;
+  TimerWater.Enabled:=false;
+  Showmessage ('Вы напоили питомца');
+  TimerWater.Enabled:=True;
 end;
 
-if i_TimerComonSon=1 then begin
-form4.TimerComonSon.Enabled:=true;
-i_TimerComonSon:=0;
+procedure TForm4.Image4Click(Sender: TObject);
+begin
+  image10.Width:=image10.Width+100;
+  TimerToilet.Enabled:=false;
+  Showmessage ('Вы сводили питомца в туалет');
+  TimerToilet.Enabled:=True;
 end;
 
- if i_TimerDandN=1 then begin
-form4.TimerDandN.Enabled:=true;
-i_TimerDandN:=0;
- end;
-
- if i_TimerDown=1 then begin
-form4.TimerDown.Enabled:=true;
-i_TimerDown:=0;
+procedure TForm4.TimerEdaTimer(Sender: TObject);
+begin
+ image6.Width :=f;
+ dec(f);
+ TimerEda.Enabled:=false;
+ if image6.Width = 20 then Showmessage ('Голоден');
+ TimerEda.Enabled:=true;
+ if (self.Image6.Width = 0) then
+ self.TimerHeath.Enabled := true
+ else
+ self.TimerHeath.Enabled := false;
 end;
 
-if i_TimerEda=1 then begin
-form4.TimerEda.Enabled:=true;
-i_TimerEda:=0;
+procedure TForm4.TimerWaterTimer(Sender: TObject);
+begin
+ image8.Width:=w;
+ dec(w);
+ if image8.Width = 20 then Showmessage ('Хочу пить');
 end;
 
-if i_TimerMed=1 then begin
-form4.TimerMed.Enabled:=true;
-i_TimerMed:=0;
+procedure TForm4.TimerToiletTimer(Sender: TObject);
+begin
+ image10.Width:=t;
+ dec(t);
+ if image10.Width = 20 then Showmessage ('Хочу в туалет');
 end;
 
-if  i_TimerNoNow=1 then begin
-form4.TimerNoNow.Enabled:=true;
-i_TimerNoNow:=0;
+procedure TForm4.TimerWashTimer(Sender: TObject);
+begin
+ image17.Width:=wa;
+ dec(wa);
+ if image17.Width = 20 then Showmessage ('От меня плохо пахнет..');
 end;
 
-if i_TimerPlay=1 then begin
-form4.TimerPlay.Enabled:=true;
-i_TimerPlay:=0;
-end;
-
-if i_TimerSon=1 then begin
-form4.TimerSon.Enabled:=true;
-i_TimerSon:=0;
-end;
-
+procedure TForm4.TimerFanyTimer(Sender: TObject);
+begin
+ image18.Width:=fan;
+ dec(fan);
+ if image18.Width = 20 then Showmessage ('Мне очень грустно.. Поиграй со мной')
 end;
 
 procedure TForm4.TimerSonTimer(Sender: TObject);
 begin
- //ProgressBar.Position := ProgressBar2.Position -7;
+ image19.Width:=sleep;
+ dec(sleep);
+ if image19.Width = 20 then Showmessage ('Я хочу спать.. Уложи меня..')
 end;
 
-
-
-procedure TForm4.TimerEdaTimer(Sender: TObject);
+procedure TForm4.TimerHeathTimer(Sender: TObject);
 begin
- ProgressBar1.Position := ProgressBar1.Position +1;
-end;
+ if image6.Width = 0 then
+ begin
+   TimerHeath.Enabled:=true;
+   image22.Width:=image22.Width-1;
+   if image22.Width = 0 then
+   begin
+     TimerHeath.Enabled:=false;
+     TimerWater.Enabled:=false;
+     TimerToilet.Enabled:=false;
+     TimerWash.Enabled:=false;
+     TimerFany.Enabled:=false;
+     TimerSon.Enabled:=false;
+     TimerEda.Enabled:=false;
+     Showmessage ('Ваш персонаж умер');
+     Unit4.Form4.close;
+     Unit1.MainForm.Visible:=true;
+   end;
+ end;
+ end;
 
-procedure TForm4.TimerMedTimer(Sender: TObject);
+procedure TForm4.FormClose(Sender: TObject);
 begin
-end;
-
-procedure TForm4.TimerPlayTimer(Sender: TObject);
-begin
-end;
-
-
-procedure TForm4.Button1Click(Sender: TObject);
-begin
- self.Enabled:=false;
- self.Visible := false;
  Unit1.MainForm.show;
 end;
 
+procedure TForm4.Button1Click(Sender: TObject);
+begin
+ ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save.ini');
+  ini.WriteInteger('Sect', 'Food', f);
+  ini.WriteInteger('Sect', 'Water', w);
+  ini.WriteInteger('Sect', 'Toilet', t);
+  ini.WriteInteger('Sect', 'Wash', wa);
+  ini.WriteInteger('Sect', 'Fany', fan);
+  ini.WriteInteger('Sect', 'Sleep', sleep);
+  ini.WriteInteger('Sect', 'Heath', heath);
+ Unit4.Form4.Close;
+ Unit1.MainForm.Visible:=true;
+///Остановление таймера на потребности, при выходе в меню
+ TimerEda.Enabled:=false;
+ TimerWater.Enabled:=false;
+ TimerToilet.Enabled:=false;
+ TimerWash.Enabled:=false;
+ TimerFany.Enabled:=false;
+ TimerSon.Enabled:=false;
+ TimerHeath.Enabled:=false;
+end;
 end.
-

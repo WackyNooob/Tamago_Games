@@ -1,46 +1,47 @@
 object MainForm: TMainForm
-  Left = 388
-  Height = 260
-  Top = 126
-  Width = 364
+  Left = 384
+  Height = 386
+  Top = 166
+  Width = 528
   BorderStyle = bsDialog
   Caption = 'Главное меню'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 386
+  ClientWidth = 528
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.0.4'
   object Button1: TButton
-    Left = 112
+    Left = 192
     Height = 25
-    Top = 48
+    Top = 120
     Width = 150
     Caption = 'Новая Игра'
     OnClick = Button1Click
     TabOrder = 0
   end
   object Button2: TButton
-    Left = 112
+    Left = 192
     Height = 25
-    Top = 88
+    Top = 168
     Width = 150
     Caption = 'Продолжить'
+    OnClick = Button2Click
     TabOrder = 1
   end
   object Button3: TButton
-    Left = 112
+    Left = 192
     Height = 25
-    Top = 128
+    Top = 216
     Width = 150
     Caption = 'Опции'
     OnClick = Button3Click
     TabOrder = 2
   end
   object Button4: TButton
-    Left = 112
+    Left = 192
     Height = 25
-    Top = 168
+    Top = 264
     Width = 150
     Caption = 'Выйти'
     OnClick = Button4Click
@@ -48,12 +49,28 @@ object MainForm: TMainForm
     TabOrder = 3
   end
   object Label1: TLabel
-    Left = 8
+    Left = 0
     Height = 15
-    Top = 240
-    Width = 203
-    Caption = 'Tamago Game. Pre-Alpha build. v0.0.1'
+    Top = 368
+    Width = 181
+    Caption = 'Tamago Game. Alpha build. v0.1.0'
     ParentColor = False
     OnClick = Label1Click
+  end
+  object Label2: TLabel
+    Left = 176
+    Height = 56
+    Top = 32
+    Width = 184
+    AutoSize = False
+    Caption = '   Тамагочи'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -27
+    Font.Name = '@Microsoft YaHei UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Layout = tlCenter
+    ParentColor = False
+    ParentFont = False
   end
 end
