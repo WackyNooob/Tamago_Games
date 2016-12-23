@@ -4,8 +4,8 @@ object Form4: TForm4
   Top = 167
   Width = 528
   Caption = 'Form4'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 393
+  ClientWidth = 528
   OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '1.6.0.4'
@@ -14,6 +14,7 @@ object Form4: TForm4
     Height = 96
     Top = 88
     Width = 96
+    OnClick = Image1Click
     Picture.Data = {
       0A544A706567496D6167654E080000FFD8FFE000104A46494600010101006000
       600000FFEC00114475636B7900010004000000280000FFDB0043000201010201
@@ -208,6 +209,7 @@ object Form4: TForm4
     Top = 321
     Width = 75
     Caption = 'Магазин'
+    OnClick = Button2Click
     TabOrder = 1
   end
   object Image5: TImage
@@ -648,8 +650,32 @@ object Form4: TForm4
       44AE426082
     }
   end
+  object Button3: TButton
+    Left = 344
+    Height = 25
+    Top = 362
+    Width = 75
+    Caption = 'Инвентарь'
+    TabOrder = 2
+  end
+  object money: TLabel
+    Left = 496
+    Height = 24
+    Top = 8
+    Width = 27
+    AutoSize = False
+    ParentColor = False
+  end
+  object Label1: TLabel
+    Left = 448
+    Height = 15
+    Top = 8
+    Width = 37
+    Caption = 'Money'
+    ParentColor = False
+  end
   object TimerEda: TTimer
-    Interval = 100
+    Interval = 1700
     OnTimer = TimerEdaTimer
     left = 8
     top = 8

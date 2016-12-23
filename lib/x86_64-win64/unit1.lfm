@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 384
+  Left = 416
   Height = 386
-  Top = 166
+  Top = 165
   Width = 528
   BorderStyle = bsDialog
   Caption = 'Главное меню'
@@ -52,8 +52,8 @@ object MainForm: TMainForm
     Left = 0
     Height = 15
     Top = 368
-    Width = 181
-    Caption = 'Tamago Game. Alpha build. v0.1.0'
+    Width = 249
+    Caption = 'Tamago Game. Alpha build. v0.2.1. new update'
     ParentColor = False
     OnClick = Label1Click
   end

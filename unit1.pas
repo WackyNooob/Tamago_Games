@@ -62,6 +62,7 @@ begin
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Wash',wa);
    Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Sleep', sleep);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Heath', heath);
+   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Score', score);
    Unit4.Form4.Visible:=true;
    Unit4.Form4.show;
    Unit4.Form4.TimerEda.Enabled:=true;

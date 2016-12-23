@@ -14,10 +14,11 @@ type
 
   TForm2 = class(TForm)
     Button1: TButton;
-    Edit1: TEdit;
     Image1: TImage;
     Image2: TImage;
     Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -75,6 +76,7 @@ begin
  Unit4.Form4.TimerFany.Enabled:=true;
  Unit4.Form4.TimerSon.Enabled:=true;
  Unit4.Form4.newgame();
+ Unit4.Form4.gamemoney();
  self.Enabled:=false;
  self.Visible := false;
  Unit4.Form4.show;

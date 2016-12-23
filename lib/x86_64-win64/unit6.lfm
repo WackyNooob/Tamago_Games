@@ -1,0 +1,27 @@
+object Form6: TForm6
+  Left = 415
+  Height = 389
+  Top = 163
+  Width = 531
+  Caption = 'Form6'
+  ClientHeight = 389
+  ClientWidth = 531
+  LCLVersion = '1.6.0.4'
+  object Label1: TLabel
+    Left = 208
+    Height = 24
+    Top = 32
+    Width = 96
+    AutoSize = False
+    Caption = 'Магазин'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    Layout = tlCenter
+    ParentColor = False
+    ParentFont = False
+  end
+end

@@ -14,10 +14,11 @@ type
 
   TForm2 = class(TForm)
     Button1: TButton;
-    Edit1: TEdit;
     Image1: TImage;
     Image2: TImage;
     Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -68,12 +69,12 @@ end;
 procedure TForm2.Image1Click(Sender: TObject);
 begin
 ///Включаем наш тайминг на потребности
- {Unit4.Form4.TimerEda.Enabled:=true;
+ Unit4.Form4.TimerEda.Enabled:=true;
  Unit4.Form4.TimerWater.Enabled:=true;
  Unit4.Form4.TimerToilet.Enabled:=true;
  Unit4.Form4.TimerWash.Enabled:=true;
  Unit4.Form4.TimerFany.Enabled:=true;
- Unit4.Form4.TimerSon.Enabled:=true;}
+ Unit4.Form4.TimerSon.Enabled:=true;
  Unit4.Form4.newgame();
  self.Enabled:=false;
  self.Visible := false;

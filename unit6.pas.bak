@@ -1,0 +1,36 @@
+unit Unit6;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs;
+
+type
+
+  { TForm6 }
+
+  TForm6 = class(TForm)
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Form6: TForm6;
+  predmets: array [0..6] of TBitmap;
+  rukzak: array [1..6] of integer;
+  shlem: integer;
+  yach: integer;
+  // Добавляем слоты
+  slots: array [1..2] of integer; // 1 слот - головной убор
+
+implementation
+
+uses Unit2;
+
+{$R *.dfm}
+
+end.
