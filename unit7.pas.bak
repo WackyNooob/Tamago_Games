@@ -1,0 +1,374 @@
+unit Unit7;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  StdCtrls,IniFiles;
+
+type
+
+  { TForm7 }
+
+  TForm7 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    ComboBox1: TComboBox;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    Image7: TImage;
+    Image8: TImage;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
+    procedure Image6Click(Sender: TObject);
+    procedure Image8Click(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Form7: TForm7;
+  predmets: array [0..6] of TBitmap;
+  rukzak: array [1..6] of integer;
+  shlem: integer;
+  yach: integer;
+  slots: array [1..2] of integer;
+  ini:TIniFile;
+
+implementation
+
+uses Unit4,Unit6;
+
+{$R *.lfm}
+
+{ TForm7 }
+
+procedure TForm7.FormCreate(Sender: TObject);
+var
+i: integer;
+begin
+for i:=0 to 6 do
+begin
+predmets[i]:=tbitmap.Create;
+predmets[i].LoadFromFile('pic/'+inttostr(i)+'.bmp');
+end;
+for i:=1 to 6 do
+begin
+rukzak[i]:=0;
+image1.Canvas.Draw(0,0,predmets[0]);
+image2.Canvas.Draw(0,0,predmets[0]);
+image3.Canvas.Draw(0,0,predmets[0]);
+image4.Canvas.Draw(0,0,predmets[0]);
+image5.Canvas.Draw(0,0,predmets[0]);
+image6.Canvas.Draw(0,0,predmets[0]);
+end;
+end;
+
+procedure TForm7.FormShow(Sender: TObject);
+begin
+  self.Enabled:=true;
+  self.Visible:=true;
+end;
+
+procedure TForm7.Button2Click(Sender: TObject);
+begin
+ ini:=TiniFile.Create(extractfilepath(paramstr(0))+'save\save.ini');
+   Unit4.Form4.image6.Width:=Ini.ReadInteger('Sect','Food',f);
+   Unit4.Form4.image8.Width:=Ini.ReadInteger('Sect','Water',w);
+   Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Toilet',t);
+   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Wash',wa);
+   Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Sleep', sleep);
+   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Heath', heath);
+   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Score', score);
+   Unit7.Form7.Image5.Width:=Ini.ReadInteger('Sect', 'Slot', rukzak[5]);
+   ini:=TiniFile.Create(extractfilepath(paramstr(0))+'save\save.ini');
+   Unit4.Form4.image6.Width:=Ini.ReadInteger('Sect','Food',f);
+   Unit4.Form4.image8.Width:=Ini.ReadInteger('Sect','Water',w);
+   Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Toilet',t);
+   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Wash',wa);
+   Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Sleep', sleep);
+   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Heath', heath);
+   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Score', score);
+   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Slot', rukzak[1]);
+   Unit4.Form4.TimerEda.Enabled:=true;
+   Unit4.Form4.TimerWater.Enabled:=true;
+   Unit4.Form4.TimerToilet.Enabled:=true;
+   Unit4.Form4.TimerWash.Enabled:=true;
+   Unit4.Form4.TimerFany.Enabled:=true;
+   Unit4.Form4.TimerSon.Enabled:=true;
+   Unit4.Form4.TimerHeath.Enabled:=true;
+   self.Enabled:=false;
+   self.Visible := false;
+   Unit4.Form4.show;
+   Unit7.Form7.close;
+end;
+
+procedure TForm7.Button1Click(Sender: TObject);
+var
+i: integer;
+begin
+if (rukzak[1]=0) then
+begin
+rukzak[1]:=shlem;
+image1.Canvas.Draw(0,0,predmets[shlem]);
+end
+else
+if (rukzak[2]=0) then
+begin
+rukzak[2]:=shlem;
+image2.Canvas.Draw(0,0,predmets[shlem]);
+end
+
+else
+if (rukzak[3]=0) then
+begin
+rukzak[3]:=shlem;
+image3.Canvas.Draw(0,0,predmets[shlem]);
+end
+
+else
+if (rukzak[4]=0) then
+begin
+rukzak[4]:=shlem;
+image4.Canvas.Draw(0,0,predmets[shlem]);
+end
+
+else
+if (rukzak[5]=0) then
+begin
+rukzak[5]:=shlem;
+image5.Canvas.Draw(0,0,predmets[shlem]);
+end
+
+else
+if (rukzak[6]=0) then
+begin
+rukzak[6]:=shlem;
+image6.Canvas.Draw(0,0,predmets[shlem]);
+end
+
+else
+for i:=1 to 1 do
+if rukzak[i]>0 then
+showmessage ('Рюкзак заполнен');
+if combobox1.ItemIndex=-1 then
+showmessage ('Нечего покупать');
+end;
+
+procedure TForm7.Image1Click(Sender: TObject);
+begin
+if rukzak[1]>0 then
+begin
+yach:=1;
+form7.showmodal;
+end
+else
+begin
+yach:=0;
+showmessage ('Слот 1 пуст!');
+end;
+end;
+
+procedure TForm7.Image2Click(Sender: TObject);
+begin
+if rukzak[2]>0 then
+begin
+yach:=1;
+form7.showmodal;
+end
+else
+begin
+yach:=0;
+showmessage ('Слот 2 пуст!');
+end;
+end;
+
+procedure TForm7.Image3Click(Sender: TObject);
+begin
+if rukzak[3]>0 then
+begin
+ yach:=3;
+  form7.ShowModal;
+   end
+else
+begin
+yach:=0;
+showmessage ('Слот 3 пуст!');
+end;
+end;
+
+procedure TForm7.Image4Click(Sender: TObject);
+begin
+if rukzak[4]>0 then
+begin
+yach:=4;
+form7.ShowModal;
+end
+else
+begin
+yach:=0;
+showmessage ('Слот 4 пуст!');
+end;
+
+end;
+
+procedure TForm7.Image5Click(Sender: TObject);
+begin
+if rukzak[5]>0 then
+begin
+yach:=5;
+form7.ShowModal;
+end
+else
+begin
+yach:=0;
+showmessage ('Слот 5 пуст!');
+end;
+end;
+
+procedure TForm7.Image6Click(Sender: TObject);
+begin
+if rukzak[6]>0 then
+begin
+yach:=6;
+form7.ShowModal;
+end
+else
+begin
+yach:=0;
+showmessage ('Слот 6 пуст!');
+end;
+end;
+
+procedure TForm7.ComboBox1Change(Sender: TObject);
+var
+i: integer;
+begin
+i:=combobox1.itemIndex;
+
+if i=0 then
+begin
+shlem:=1;
+image7.Canvas.Draw(0,0,predmets[shlem]);
+end;
+
+if i=1 then
+begin
+shlem:=2;
+image7.Canvas.Draw(0,0,predmets[shlem]);
+end;
+
+if i=2 then
+begin
+shlem:=3;
+image7.Canvas.Draw(0,0,predmets[shlem]);
+end;
+
+if i=3 then
+begin
+shlem:=4;
+image7.Canvas.Draw(0,0,predmets[shlem]);
+end;
+
+if i=4 then
+begin
+shlem:=5;
+image7.Canvas.Draw(0,0,predmets[shlem]);
+end;
+
+if i=5 then
+begin
+shlem:=6;
+image7.Canvas.Draw(0,0,predmets[shlem]);
+end;
+end;
+
+procedure TForm7.Image8Click(Sender: TObject);
+var
+i: integer;
+begin
+if (slots[1]>0) and (rukzak[1]=0) then
+begin
+rukzak[1]:=slots[1];
+image1.Canvas.Draw(0,0,predmets[slots[1]]);
+slots[1]:=0;
+image8.Canvas.Draw(0,0,predmets[0]);
+image8.Hint:='';
+end
+else
+
+if (slots[1]>0) and (rukzak[2]=0) then
+begin
+rukzak[2]:=slots[1];
+image2.Canvas.Draw(0,0,predmets[slots[1]]);
+slots[1]:=0;
+image8.Canvas.Draw(0,0,predmets[0]);
+image8.Hint:='';
+end
+else
+
+if (slots[1]>0) and (rukzak[3]=0) then
+begin
+rukzak[3]:=slots[1];
+image3.Canvas.Draw(0,0,predmets[slots[1]]);
+slots[1]:=0;
+image8.Canvas.Draw(0,0,predmets[0]);
+image8.Hint:='';
+end
+else
+
+if (slots[1]>0) and (rukzak[4]=0) then
+begin
+rukzak[4]:=slots[1];
+image4.Canvas.Draw(0,0,predmets[slots[1]]);
+slots[1]:=0;
+image8.Canvas.Draw(0,0,predmets[0]);
+image8.Hint:='';
+end
+else
+
+if (slots[1]>0) and (rukzak[5]=0) then
+begin
+rukzak[5]:=slots[1];
+image5.Canvas.Draw(0,0,predmets[slots[1]]);
+slots[1]:=0;
+image8.Canvas.Draw(0,0,predmets[0]);
+image8.Hint:='';
+end
+else
+
+if (slots[1]>0) and (rukzak[6]=0) then
+begin
+rukzak[6]:=slots[1];
+image6.Canvas.Draw(0,0,predmets[slots[1]]);
+slots[1]:=0;
+image8.Canvas.Draw(0,0,predmets[0]);
+image8.Hint:='';
+end
+else
+
+for i:=1 to 1 do
+begin
+if (slots[1]>0) and (rukzak[i]>0) then
+showmessage ('В рюкзаке нет места');
+end;
+end;
+end.
+
+

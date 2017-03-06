@@ -38,7 +38,7 @@ var
 
 implementation
 
- uses Unit3, unit2,Unit5,Unit4;
+ uses Unit3, unit2,Unit5,Unit4,Unit7;
 
 {$R *.lfm}
 
@@ -55,7 +55,7 @@ procedure TMainForm.Button2Click(Sender: TObject);
 var
   ini: Tinifile;
 begin
- ini:=TiniFile.Create(extractfilepath(paramstr(0))+'save.ini');
+ ini:=TiniFile.Create(extractfilepath(paramstr(0))+'save\save.ini');
    Unit4.Form4.image6.Width:=Ini.ReadInteger('Sect','Food',f);
    Unit4.Form4.image8.Width:=Ini.ReadInteger('Sect','Water',w);
    Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Toilet',t);
@@ -63,6 +63,7 @@ begin
    Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Sleep', sleep);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Heath', heath);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Score', score);
+   Unit7.Form7.Image5.Width:=Ini.ReadInteger('Sect', 'Slot', rukzak[1]);
    Unit4.Form4.Visible:=true;
    Unit4.Form4.show;
    Unit4.Form4.TimerEda.Enabled:=true;

@@ -4,8 +4,9 @@ object Form6: TForm6
   Top = 163
   Width = 531
   Caption = 'Form6'
-  ClientHeight = 389
-  ClientWidth = 531
+  ClientHeight = 0
+  ClientWidth = 0
+  OnShow = FormShow
   LCLVersion = '1.6.0.4'
   object Label1: TLabel
     Left = 208
@@ -23,5 +24,48 @@ object Form6: TForm6
     Layout = tlCenter
     ParentColor = False
     ParentFont = False
+  end
+  object Image1: TImage
+    Left = 24
+    Height = 50
+    Top = 80
+    Width = 50
+    OnClick = Image1Click
+  end
+  object Label2: TLabel
+    Left = 88
+    Height = 80
+    Top = 72
+    Width = 130
+    AutoSize = False
+    Caption = 'Маленькая Аптечка'#13#10'+20 к здоровью;'#13#10'+10 к счастью;'#13#10'-5 к голоду;'#13#10'-10 к нужде;'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 18
+    Height = 15
+    Top = 137
+    Width = 56
+    AutoSize = False
+    Caption = '5 монеток'
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 448
+    Height = 25
+    Top = 360
+    Width = 75
+    Caption = 'Выход'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 368
+    Height = 25
+    Top = 360
+    Width = 75
+    Caption = 'Инвентарь'
+    OnClick = Button2Click
+    TabOrder = 1
   end
 end

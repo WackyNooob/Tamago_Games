@@ -4,8 +4,8 @@ object Form4: TForm4
   Top = 167
   Width = 528
   Caption = 'Form4'
-  ClientHeight = 393
-  ClientWidth = 528
+  ClientHeight = 0
+  ClientWidth = 0
   OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '1.6.0.4'
@@ -656,6 +656,7 @@ object Form4: TForm4
     Top = 362
     Width = 75
     Caption = 'Инвентарь'
+    OnClick = Button3Click
     TabOrder = 2
   end
   object money: TLabel

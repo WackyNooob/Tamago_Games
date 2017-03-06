@@ -54,6 +54,7 @@ type
     TimerDown: TTimer;
     now: TLabel;
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
     procedure FormClose(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
@@ -96,10 +97,10 @@ var
   b:integer;
 
 implementation
-uses Unit1;
+uses Unit1,Unit6,Unit7;
 
 {$R *.lfm}
-
+///Начальные параметры при новой игре\\\
 procedure TForm4.newgame();
 begin
  aptechka:=0;
@@ -118,12 +119,8 @@ procedure TForm4.FormShow(Sender: TObject);
 begin
   image22.Width:=heath;
   dec(heath);
-  //f:=100;
-  //w:=100;
-  //t:=100;
-  //wa:=100;
-  //fan:=100;
-  //sleep:=100;
+  self.Enabled:=true;
+  self.Visible:=true;
 end;
 
 procedure TForm4.Image2Click(Sender: TObject);
@@ -131,15 +128,14 @@ begin
  if f>=100 then
  begin
   TimerEda.Enabled:=false;
-  f:=+100;
   Showmessage ('Ваш питомец не голоден');
   TimerEda.Enabled:=True;
    end;
  if f<=100 then
  begin
-  image6.Width:=image6.Width+50;
+  image6.Width:=image6.Width+f;
   TimerEda.Enabled:=false;
-  f+=50;
+  f:=100;
   Showmessage ('Вы покормили питомца');
   TimerEda.Enabled:=True;
   end;
@@ -147,10 +143,19 @@ begin
 
 procedure TForm4.Image3Click(Sender: TObject);
 begin
-  image8.Width:=image8.Width+50;
+  if w>=100 then
+  begin
   TimerWater.Enabled:=false;
-  Showmessage ('Вы напоили питомца');
+  Showmessage ('Ваш питомец не хочет пить');
   TimerWater.Enabled:=True;
+  end;
+  if w<=100 then
+  begin
+  image8.Width:=image8.Width+w;
+  TimerWater.Enabled:=false;
+  Showmessage ('Вы напомили питомца');
+  TimerWater.Enabled:=True;
+  end;
 end;
 
 procedure TForm4.Image4Click(Sender: TObject);
@@ -183,8 +188,12 @@ begin
  TimerWater.Enabled:=false;
  if image8.Width = 20 then Showmessage ('Хочу пить');
  TimerWater.Enabled:=true;
-  if (self.image8.Width = w) then
+  if (self.image8.Width = 0) then
  self.TimerWater.Enabled:= true
+ else
+ self.TimerHeath.Enabled:=false;
+  if (self.image8.Width = f) then
+  self.TimerWater.Enabled: = true
 end;
 
 procedure TForm4.TimerToiletTimer(Sender: TObject);
@@ -260,12 +269,7 @@ end;
 
 procedure TForm4.Button2Click(Sender: TObject);
 begin
-
-end;
-
-procedure TForm4.Button1Click(Sender: TObject);
-begin
- ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save.ini');
+ ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\save.ini');
   ini.WriteInteger('Sect', 'Food', f);
   ini.WriteInteger('Sect', 'Water', w);
   ini.WriteInteger('Sect', 'Toilet', t);
@@ -274,9 +278,10 @@ begin
   ini.WriteInteger('Sect', 'Sleep', sleep);
   ini.WriteInteger('Sect', 'Heath', heath);
   ini.WriteInteger('Sect', 'Score', score);
+  ini.WriteInteger('Sect', 'Slot', rukzak[1]);
  Unit4.Form4.Close;
- Unit1.MainForm.Visible:=true;
-///Остановление таймера на потребности, при выходе в меню
+ Unit6.Form6.Visible:=true;
+///Остановление таймера на потребности, при выходе в меню\\\
  TimerEda.Enabled:=false;
  TimerWater.Enabled:=false;
  TimerToilet.Enabled:=false;
@@ -285,7 +290,31 @@ begin
  TimerSon.Enabled:=false;
  TimerHeath.Enabled:=false;
 end;
-///Игровая валюта
+
+procedure TForm4.Button1Click(Sender: TObject);
+begin
+ ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\save.ini');
+  ini.WriteInteger('Sect', 'Food', f);
+  ini.WriteInteger('Sect', 'Water', w);
+  ini.WriteInteger('Sect', 'Toilet', t);
+  ini.WriteInteger('Sect', 'Wash', wa);
+  ini.WriteInteger('Sect', 'Fany', fan);
+  ini.WriteInteger('Sect', 'Sleep', sleep);
+  ini.WriteInteger('Sect', 'Heath', heath);
+  ini.WriteInteger('Sect', 'Score', score);
+  ini.WriteInteger('Sect', 'Slot', rukzak[1]);
+ Unit4.Form4.Close;
+ Unit1.MainForm.Visible:=true;
+///Остановление таймера на потребности, при выходе в меню\\\
+ TimerEda.Enabled:=false;
+ TimerWater.Enabled:=false;
+ TimerToilet.Enabled:=false;
+ TimerWash.Enabled:=false;
+ TimerFany.Enabled:=false;
+ TimerSon.Enabled:=false;
+ TimerHeath.Enabled:=false;
+end;
+///Игровая валюта\\\
 procedure TForm4.gamemoney();
 begin
 money.Caption:=IntToStr(score);
@@ -295,5 +324,30 @@ procedure TForm4.Image1Click(Sender: TObject);
 begin
   score+=1;
   money.Caption:=IntToStr(score);
+end;
+///Система инвентаря\\\
+procedure TForm4.Button3Click(Sender: TObject);
+begin
+ ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\save.ini');
+  ini.WriteInteger('Sect', 'Food', f);
+  ini.WriteInteger('Sect', 'Water', w);
+  ini.WriteInteger('Sect', 'Toilet', t);
+  ini.WriteInteger('Sect', 'Wash', wa);
+  ini.WriteInteger('Sect', 'Fany', fan);
+  ini.WriteInteger('Sect', 'Sleep', sleep);
+  ini.WriteInteger('Sect', 'Heath', heath);
+  ini.WriteInteger('Sect', 'Score', score);
+  ini.WriteInteger('Sect', 'Slot', rukzak[1]);
+///Отключаем таймер\\\
+ TimerEda.Enabled:=false;
+ TimerWater.Enabled:=false;
+ TimerToilet.Enabled:=false;
+ TimerWash.Enabled:=false;
+ TimerFany.Enabled:=false;
+ TimerSon.Enabled:=false;
+ self.Enabled:=false;
+ self.Visible := false;
+ Unit7.Form7.Visible:=true;
+ Unit7.Form7.show;
 end;
 end.
