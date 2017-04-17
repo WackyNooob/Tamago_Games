@@ -1,0 +1,19 @@
+object Form1: TForm1
+  Left = 419
+  Height = 397
+  Top = 183
+  Width = 533
+  Caption = 'Тамагочи. Игра за собачку'
+  ClientHeight = 0
+  ClientWidth = 0
+  LCLVersion = '1.6.0.4'
+  object Button1: TButton
+    Left = 440
+    Height = 25
+    Top = 352
+    Width = 75
+    Caption = 'Меню'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+end

@@ -14,8 +14,6 @@ type
 
   TForm4 = class(TForm)
     Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
     Image1: TImage;
     Image10: TImage;
     Image11: TImage;
@@ -130,7 +128,7 @@ begin
   TimerEda.Enabled:=false;
   Showmessage ('Ваш питомец не голоден');
   TimerEda.Enabled:=True;
-   end;
+   end else
  if f<=100 then
  begin
   image6.Width:=image6.Width+f;
@@ -160,10 +158,21 @@ end;
 
 procedure TForm4.Image4Click(Sender: TObject);
 begin
-  image10.Width:=image10.Width+100;
+  if t>=100 then
+  begin
+  TimerToilet.Enabled:=false;
+  Showmessage ('Ваш питомец не хочет в туалет');
+  TimerToilet.Enabled:=True;
+  end;
+  if t<=100 then
+  begin
+  image10.Width:=image10.Width+w;
   TimerToilet.Enabled:=false;
   Showmessage ('Вы сводили питомца в туалет');
   TimerToilet.Enabled:=True;
+  end;
+
+
 end;
 
 procedure TForm4.TimerEdaTimer(Sender: TObject);
@@ -193,7 +202,7 @@ begin
  else
  self.TimerHeath.Enabled:=false;
   if (self.image8.Width = f) then
-  self.TimerWater.Enabled: = true
+  self.TimerWater.Enabled:= true
 end;
 
 procedure TForm4.TimerToiletTimer(Sender: TObject);
@@ -293,7 +302,7 @@ end;
 
 procedure TForm4.Button1Click(Sender: TObject);
 begin
- ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\save.ini');
+ ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\play_cat\save.ini');
   ini.WriteInteger('Sect', 'Food', f);
   ini.WriteInteger('Sect', 'Water', w);
   ini.WriteInteger('Sect', 'Toilet', t);
@@ -302,7 +311,7 @@ begin
   ini.WriteInteger('Sect', 'Sleep', sleep);
   ini.WriteInteger('Sect', 'Heath', heath);
   ini.WriteInteger('Sect', 'Score', score);
-  ini.WriteInteger('Sect', 'Slot', rukzak[1]);
+  {ini.WriteInteger('Sect', 'Slot', rukzak[1]);}
  Unit4.Form4.Close;
  Unit1.MainForm.Visible:=true;
 ///Остановление таймера на потребности, при выходе в меню\\\
@@ -328,7 +337,7 @@ end;
 ///Система инвентаря\\\
 procedure TForm4.Button3Click(Sender: TObject);
 begin
- ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\save.ini');
+ ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\play_cat\save.ini');
   ini.WriteInteger('Sect', 'Food', f);
   ini.WriteInteger('Sect', 'Water', w);
   ini.WriteInteger('Sect', 'Toilet', t);
@@ -337,7 +346,7 @@ begin
   ini.WriteInteger('Sect', 'Sleep', sleep);
   ini.WriteInteger('Sect', 'Heath', heath);
   ini.WriteInteger('Sect', 'Score', score);
-  ini.WriteInteger('Sect', 'Slot', rukzak[1]);
+  {ini.WriteInteger('Sect', 'Slot', rukzak[1]);}
 ///Отключаем таймер\\\
  TimerEda.Enabled:=false;
  TimerWater.Enabled:=false;

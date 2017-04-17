@@ -1,18 +1,18 @@
 object Form4: TForm4
-  Left = 385
+  Left = 421
   Height = 393
-  Top = 167
+  Top = 185
   Width = 528
-  Caption = 'Form4'
+  Caption = 'Тамагочи. Игра за котика.'
   ClientHeight = 0
   ClientWidth = 0
   OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '1.6.0.4'
   object Image1: TImage
-    Left = 208
+    Left = 212
     Height = 96
-    Top = 88
+    Top = 112
     Width = 96
     OnClick = Image1Click
     Picture.Data = {
@@ -193,24 +193,6 @@ object Form4: TForm4
       A6E9BE32BEF8B9E32D0D6D35BBAF156993E9B2787E63B7ED963676B2C5195896
       54D9F683E6194464ABAA398C7EA4519CD1401FFFD9
     }
-  end
-  object Button1: TButton
-    Left = 440
-    Height = 25
-    Top = 362
-    Width = 75
-    Caption = 'Меню'
-    OnClick = Button1Click
-    TabOrder = 0
-  end
-  object Button2: TButton
-    Left = 440
-    Height = 25
-    Top = 321
-    Width = 75
-    Caption = 'Магазин'
-    OnClick = Button2Click
-    TabOrder = 1
   end
   object Image5: TImage
     Left = 48
@@ -450,7 +432,7 @@ object Form4: TForm4
   object Image13: TImage
     Left = 344
     Height = 26
-    Top = 280
+    Top = 320
     Width = 26
     Picture.Data = {
       0A544A706567496D6167651A040000FFD8FFE000104A46494600010101006000
@@ -620,9 +602,9 @@ object Form4: TForm4
     }
   end
   object Image21: TImage
-    Left = 384
+    Left = 392
     Height = 26
-    Top = 280
+    Top = 319
     Width = 100
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963B600000089504E47
@@ -635,9 +617,9 @@ object Form4: TForm4
     }
   end
   object Image22: TImage
-    Left = 384
+    Left = 392
     Height = 26
-    Top = 280
+    Top = 319
     Width = 100
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963C900000089504E47
@@ -649,15 +631,6 @@ object Form4: TForm4
       1263488C213186C4181263488C21293307BF6D02601920BEC20000000049454E
       44AE426082
     }
-  end
-  object Button3: TButton
-    Left = 344
-    Height = 25
-    Top = 362
-    Width = 75
-    Caption = 'Инвентарь'
-    OnClick = Button3Click
-    TabOrder = 2
   end
   object money: TLabel
     Left = 496
@@ -674,6 +647,15 @@ object Form4: TForm4
     Width = 37
     Caption = 'Money'
     ParentColor = False
+  end
+  object Button1: TButton
+    Left = 440
+    Height = 25
+    Top = 362
+    Width = 75
+    Caption = 'Меню'
+    OnClick = Button1Click
+    TabOrder = 0
   end
   object TimerEda: TTimer
     Interval = 1700

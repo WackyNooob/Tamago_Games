@@ -1,0 +1,56 @@
+object Form8: TForm8
+  Left = 475
+  Height = 183
+  Top = 279
+  Width = 424
+  Caption = 'Выберите персонажа'
+  ClientHeight = 183
+  ClientWidth = 424
+  LCLVersion = '1.6.0.4'
+  object Image1: TImage
+    Left = 56
+    Height = 90
+    Top = 40
+    Width = 90
+    OnClick = Image1Click
+  end
+  object Image2: TImage
+    Left = 280
+    Height = 90
+    Top = 40
+    Width = 90
+  end
+  object Label1: TLabel
+    Left = 96
+    Height = 15
+    Top = 8
+    Width = 224
+    Caption = 'Выберите персонажа для загрузки игры:'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 80
+    Height = 15
+    Top = 136
+    Width = 32
+    Caption = 'Котик'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 304
+    Height = 15
+    Top = 136
+    Width = 47
+    Caption = 'Собачка'
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 176
+    Height = 25
+    Top = 152
+    Width = 75
+    Caption = 'Назад'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+end

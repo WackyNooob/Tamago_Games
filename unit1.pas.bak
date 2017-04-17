@@ -38,7 +38,7 @@ var
 
 implementation
 
- uses Unit3, unit2,Unit5,Unit4,Unit7;
+ uses Unit3, unit2,Unit5,Unit4,Unit9;
 
 {$R *.lfm}
 
@@ -51,27 +51,10 @@ self.Visible := false;
 Unit2.Form2.show;
 end;
 
+///Кнопка загрузки\\\
 procedure TMainForm.Button2Click(Sender: TObject);
-var
-  ini: Tinifile;
 begin
- ini:=TiniFile.Create(extractfilepath(paramstr(0))+'save\save.ini');
-   Unit4.Form4.image6.Width:=Ini.ReadInteger('Sect','Food',f);
-   Unit4.Form4.image8.Width:=Ini.ReadInteger('Sect','Water',w);
-   Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Toilet',t);
-   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Wash',wa);
-   Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Sleep', sleep);
-   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Heath', heath);
-   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Score', score);
-   Unit7.Form7.Image5.Width:=Ini.ReadInteger('Sect', 'Slot', rukzak[1]);
-   Unit4.Form4.Visible:=true;
-   Unit4.Form4.show;
-   Unit4.Form4.TimerEda.Enabled:=true;
-   Unit4.Form4.TimerWater.Enabled:=true;
-   Unit4.Form4.TimerToilet.Enabled:=true;
-   Unit4.Form4.TimerWash.Enabled:=true;
-   Unit4.Form4.TimerFany.Enabled:=true;
-   Unit4.Form4.TimerSon.Enabled:=true;
+ Unit9.Form8.show;
 end;
 
 procedure TMainForm.Button3Click(Sender: TObject);

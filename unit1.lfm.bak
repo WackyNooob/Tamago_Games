@@ -1,12 +1,13 @@
 object MainForm: TMainForm
-  Left = 195
+  Left = 418
   Height = 386
-  Top = 36
+  Top = 185
   Width = 528
   BorderStyle = bsDialog
   Caption = 'Главное меню'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 386
+  ClientWidth = 528
+  Color = 13729838
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -52,15 +53,15 @@ object MainForm: TMainForm
     Left = 0
     Height = 15
     Top = 368
-    Width = 223
-    Caption = 'Tamago Game. Alpha build. v0.2.2. bug fix'
+    Width = 254
+    Caption = 'Tamago Game. Alpha build. v0.2.3. more bug fix'
     ParentColor = False
     OnClick = Label1Click
   end
   object Label2: TLabel
     Left = 176
     Height = 56
-    Top = 32
+    Top = 40
     Width = 184
     AutoSize = False
     Caption = '   Тамагочи'

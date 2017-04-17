@@ -22,7 +22,6 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Image1Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -35,29 +34,11 @@ var
 
 implementation
 
-uses Unit4,Unit7;
+uses Unit4;
 {$R *.lfm}
 
 { TForm6 }
 
-procedure TForm6.Image1Click(Sender: TObject);
-begin
-  if score>0 then
-  begin
-    score:=-5;
-    Unit4.Form4.money.Caption:=IntToStr(score);
-    ShowMessage ('Товар успешно куплен');
-    end;
-    if (rukzak[1]=0) then
-    begin
-    rukzak[1]:=shlem;
-    image1.Canvas.Draw(0,0,predmets[shlem]);
-    end;
-    if score<=0 then
-    begin
-    ShowMessage ('У вас недостаточно монет!');
-    end;
-    end;
 
 procedure TForm6.Button2Click(Sender: TObject);
 begin
@@ -70,7 +51,6 @@ begin
   ini.WriteInteger('Sect', 'Sleep', sleep);
   ini.WriteInteger('Sect', 'Heath', heath);
   ini.WriteInteger('Sect', 'Score', score);
-  ini.WriteInteger('Sect', 'Slot', rukzak[1]);
  ini:=TiniFile.Create(extractfilepath(paramstr(0))+'save\save.ini');
    Unit4.Form4.image6.Width:=Ini.ReadInteger('Sect','Food',f);
    Unit4.Form4.image8.Width:=Ini.ReadInteger('Sect','Water',w);
@@ -79,7 +59,7 @@ begin
    Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Sleep', sleep);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Heath', heath);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Score', score);
-   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Slot', rukzak[1]);
+   {Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Slot', rukzak[1]);}
    Unit6.Form6.Close;
    Unit4.Form4.Visible:=true;
    Unit4.Form4.show;
@@ -102,7 +82,7 @@ begin
   ini.WriteInteger('Sect', 'Sleep', sleep);
   ini.WriteInteger('Sect', 'Heath', heath);
   ini.WriteInteger('Sect', 'Score', score);
-  ini.WriteInteger('Sect', 'Slot', rukzak[1]);
+  {ini.WriteInteger('Sect', 'Slot', rukzak[1]);}
   ini:=TiniFile.Create(extractfilepath(paramstr(0))+'save\save.ini');
    Unit4.Form4.image6.Width:=Ini.ReadInteger('Sect','Food',f);
    Unit4.Form4.image8.Width:=Ini.ReadInteger('Sect','Water',w);
@@ -111,7 +91,7 @@ begin
    Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Sleep', sleep);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Heath', heath);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Score', score);
-   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Slot', rukzak[1]);
+   {Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Slot', rukzak[1]);}
 end;
 end.
 

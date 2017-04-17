@@ -68,7 +68,7 @@ end;
 
 procedure TForm2.Image1Click(Sender: TObject);
 begin
-///Включаем наш тайминг на потребности
+///Включаем наш тайминг на потребности\\\
  Unit4.Form4.TimerEda.Enabled:=true;
  Unit4.Form4.TimerWater.Enabled:=true;
  Unit4.Form4.TimerToilet.Enabled:=true;

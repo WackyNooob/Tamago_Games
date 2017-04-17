@@ -53,31 +53,20 @@ var
 
 implementation
 
-uses Unit4,Unit6;
+uses Unit4;
 
 {$R *.lfm}
 
 { TForm7 }
 
 procedure TForm7.FormCreate(Sender: TObject);
-var
-i: integer;
 begin
-for i:=0 to 6 do
-begin
-predmets[i]:=tbitmap.Create;
-predmets[i].LoadFromFile('pic/'+inttostr(i)+'.bmp');
-end;
-for i:=1 to 6 do
-begin
-rukzak[i]:=0;
 image1.Canvas.Draw(0,0,predmets[0]);
 image2.Canvas.Draw(0,0,predmets[0]);
 image3.Canvas.Draw(0,0,predmets[0]);
 image4.Canvas.Draw(0,0,predmets[0]);
 image5.Canvas.Draw(0,0,predmets[0]);
 image6.Canvas.Draw(0,0,predmets[0]);
-end;
 end;
 
 procedure TForm7.FormShow(Sender: TObject);
@@ -96,7 +85,7 @@ begin
    Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Sleep', sleep);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Heath', heath);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Score', score);
-   Unit7.Form7.Image5.Width:=Ini.ReadInteger('Sect', 'Slot', rukzak[5]);
+   {Unit7.Form7.Image5.Width:=Ini.ReadInteger('Sect', 'Slot', rukzak[5]);}
    ini:=TiniFile.Create(extractfilepath(paramstr(0))+'save\save.ini');
    Unit4.Form4.image6.Width:=Ini.ReadInteger('Sect','Food',f);
    Unit4.Form4.image8.Width:=Ini.ReadInteger('Sect','Water',w);
@@ -105,7 +94,7 @@ begin
    Unit4.Form4.image10.Width:=Ini.ReadInteger('Sect','Sleep', sleep);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Heath', heath);
    Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Score', score);
-   Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Slot', rukzak[1]);
+   {Unit4.Form4.image17.Width:=Ini.ReadInteger('Sect','Slot', rukzak[1]);}
    Unit4.Form4.TimerEda.Enabled:=true;
    Unit4.Form4.TimerWater.Enabled:=true;
    Unit4.Form4.TimerToilet.Enabled:=true;

@@ -83,20 +83,18 @@
         <UnitName Value="Unit4"/>
       </Unit5>
       <Unit6>
-        <Filename Value="unit6.pas"/>
+        <Filename Value="unit8.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form6"/>
-        <HasResources Value="True"/>
+        <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Unit6"/>
+        <UnitName Value="Unit8"/>
       </Unit6>
       <Unit7>
-        <Filename Value="unit7.pas"/>
+        <Filename Value="unit9.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form7"/>
-        <HasResources Value="True"/>
+        <ComponentName Value="Form8"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Unit7"/>
+        <UnitName Value="Unit9"/>
       </Unit7>
     </Units>
   </ProjectOptions>

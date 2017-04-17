@@ -4,8 +4,8 @@ object Form6: TForm6
   Top = 163
   Width = 531
   Caption = 'Form6'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 389
+  ClientWidth = 531
   OnShow = FormShow
   LCLVersion = '1.6.0.4'
   object Label1: TLabel
@@ -30,7 +30,6 @@ object Form6: TForm6
     Height = 50
     Top = 80
     Width = 50
-    OnClick = Image1Click
   end
   object Label2: TLabel
     Left = 88
