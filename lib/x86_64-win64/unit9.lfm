@@ -4,8 +4,9 @@ object Form8: TForm8
   Top = 279
   Width = 424
   Caption = 'Выберите персонажа'
-  ClientHeight = 183
-  ClientWidth = 424
+  ClientHeight = 0
+  ClientWidth = 0
+  OnCreate = FormCreate
   LCLVersion = '1.6.0.4'
   object Image1: TImage
     Left = 56

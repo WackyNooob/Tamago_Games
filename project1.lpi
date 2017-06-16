@@ -16,7 +16,8 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <BuildNr Value="1"/>
+      <AutoIncrementBuild Value="True"/>
+      <RevisionNr Value="3"/>
       <Language Value="0419"/>
       <Attributes pvaPrivateBuild="True"/>
       <StringTable ProductVersion=""/>

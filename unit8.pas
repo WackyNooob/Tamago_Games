@@ -14,6 +14,7 @@ type
   TForm1 = class(TForm)
     Button1: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { private declarations }
   public
@@ -59,6 +60,11 @@ begin
   ini.WriteInteger('Sect', 'Score', score);
  Unit8.Form1.Close;
  Unit1.MainForm.Visible:=true;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+
 end;
 
 end.

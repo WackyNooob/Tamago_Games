@@ -6,6 +6,7 @@ object Form1: TForm1
   Caption = 'Тамагочи. Игра за собачку'
   ClientHeight = 0
   ClientWidth = 0
+  OnCreate = FormCreate
   LCLVersion = '1.6.0.4'
   object Button1: TButton
     Left = 440

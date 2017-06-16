@@ -1,5 +1,10 @@
 unit Unit4;
-
+///Логика кота\\\
+///Имеются
+///Потребности
+///Деньги
+///Сохранение данных
+///Остановка таймеров\\\
 {$mode objfpc}{$H+}
 
 interface
@@ -51,11 +56,13 @@ type
     TimerSplyu: TTimer;
     TimerDown: TTimer;
     now: TLabel;
-    procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormClose(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Image11Click(Sender: TObject);
+    procedure Image12Click(Sender: TObject);
     procedure Image1Click(Sender: TObject);
+    procedure Image20Click(Sender: TObject);
     procedure Image2Click(Sender: TObject);
     procedure Image3Click(Sender: TObject);
     procedure Image4Click(Sender: TObject);
@@ -113,6 +120,7 @@ begin
 end;
 
 ///Потребности персонажа\\\
+///Восполенине потребностей
 procedure TForm4.FormShow(Sender: TObject);
 begin
   image22.Width:=heath;
@@ -151,6 +159,7 @@ begin
   begin
   image8.Width:=image8.Width+w;
   TimerWater.Enabled:=false;
+  w:=100;
   Showmessage ('Вы напомили питомца');
   TimerWater.Enabled:=True;
   end;
@@ -166,15 +175,69 @@ begin
   end;
   if t<=100 then
   begin
-  image10.Width:=image10.Width+w;
+  image10.Width:=image10.Width+t;
   TimerToilet.Enabled:=false;
+  t:=100;
   Showmessage ('Вы сводили питомца в туалет');
   TimerToilet.Enabled:=True;
   end;
-
-
 end;
 
+procedure TForm4.Image11Click(Sender: TObject);
+begin
+   if wa>=100 then
+  begin
+  TimerToilet.Enabled:=false;
+  Showmessage ('Ваш питомец не хочет в душ');
+  TimerToilet.Enabled:=True;
+  end;
+  if wa<=100 then
+  begin
+  image17.Width:=image17.Width+wa;
+  TimerToilet.Enabled:=false;
+  wa:=100;
+  Showmessage ('Вы сводили питомца в душ');
+  TimerToilet.Enabled:=True;
+  end;
+end;
+
+procedure TForm4.Image12Click(Sender: TObject);
+begin
+  if fan>=100 then
+  begin
+  TimerToilet.Enabled:=false;
+  Showmessage ('Ваш питомец не хочет играться');
+  TimerToilet.Enabled:=True;
+  end;
+  if fan<=100 then
+  begin
+  image18.Width:=image18.Width+fan;
+  TimerToilet.Enabled:=false;
+  fan:=100;
+  Showmessage ('Вы поиграли с питомцем');
+  TimerToilet.Enabled:=True;
+  end;
+end;
+
+procedure TForm4.Image20Click(Sender: TObject);
+begin
+   if sleep>=100 then
+  begin
+  TimerToilet.Enabled:=false;
+  Showmessage ('Ваш питомец не хочет спат');
+  TimerToilet.Enabled:=True;
+  end;
+  if sleep<=100 then
+  begin
+  image20.Width:=image20.Width+sleep;
+  TimerToilet.Enabled:=false;
+  sleep:=100;
+  Showmessage ('Вы уложили питомца спать');
+  TimerToilet.Enabled:=True;
+  end;
+end;
+///Потребности персонажа\\\
+///Уведомление об нуждах
 procedure TForm4.TimerEdaTimer(Sender: TObject);
 begin
  image6.Width :=f;
@@ -201,7 +264,7 @@ begin
  self.TimerWater.Enabled:= true
  else
  self.TimerHeath.Enabled:=false;
-  if (self.image8.Width = f) then
+  if (self.image8.Width = w) then
   self.TimerWater.Enabled:= true
 end;
 
@@ -212,6 +275,10 @@ begin
  TimerToilet.Enabled:=false;
  if image10.Width = 20 then Showmessage ('Хочу в туалет');
  TimerToilet.Enabled:=true;
+  if (self.Image10.width = 0) then
+  self.TimerToilet.Enabled:= true
+  else
+  self.TimerHeath.Enabled:= false;
   if (self.image10.Width = t) then
  self.TimerToilet.Enabled:= true
 end;
@@ -223,6 +290,10 @@ begin
  TimerWash.Enabled:=false;
  if image17.Width = 20 then Showmessage ('От меня плохо пахнет..');
  TimerWash.Enabled:=true;
+  if (self.Image17.Width = 0) then
+  self.TimerWash.Enabled:= true
+  else
+  self.TimerHeath.Enabled:= false;
   if (self.image17.Width = wa) then
  self.TimerWash.Enabled:= true
 end;
@@ -234,6 +305,10 @@ begin
  TimerFany.Enabled:=false;
  if image18.Width = 20 then Showmessage ('Мне очень грустно.. Поиграй со мной');
  TimerFany.Enabled:=true;
+  if (self.Image18.Width = 0) then
+  self.TimerFany.Enabled:= true
+  else
+  self.TimerHeath.Enabled:= false;
    if (self.image18.Width = fan) then
  self.TimerFany.Enabled:= true
 end;
@@ -245,10 +320,18 @@ begin
  TimerSon.Enabled:=false;
  if image19.Width = 20 then Showmessage ('Я хочу спать.. Уложи меня..');
  TimerSon.Enabled:=true;
+  if (self.Image19.Width = 0) then
+  self.TimerSon.Enabled:= true
+  else
+  self.TimerHeath.Enabled:= false;
     if (self.image19.Width = sleep) then
  self.TimerSon.Enabled:= true
 end;
 
+///Таймер на здоровье персонажа\\\
+///В случае, если он будет сильно голоден
+///UPD 16.06.2017
+///Дописать для других потребностей!!!!!!!!!!!
 procedure TForm4.TimerHeathTimer(Sender: TObject);
 begin
  if image6.Width = 0 then
@@ -275,34 +358,10 @@ procedure TForm4.FormClose(Sender: TObject);
 begin
  Unit1.MainForm.show;
 end;
-
-procedure TForm4.Button2Click(Sender: TObject);
-begin
- ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\save.ini');
-  ini.WriteInteger('Sect', 'Food', f);
-  ini.WriteInteger('Sect', 'Water', w);
-  ini.WriteInteger('Sect', 'Toilet', t);
-  ini.WriteInteger('Sect', 'Wash', wa);
-  ini.WriteInteger('Sect', 'Fany', fan);
-  ini.WriteInteger('Sect', 'Sleep', sleep);
-  ini.WriteInteger('Sect', 'Heath', heath);
-  ini.WriteInteger('Sect', 'Score', score);
-  ini.WriteInteger('Sect', 'Slot', rukzak[1]);
- Unit4.Form4.Close;
- Unit6.Form6.Visible:=true;
-///Остановление таймера на потребности, при выходе в меню\\\
- TimerEda.Enabled:=false;
- TimerWater.Enabled:=false;
- TimerToilet.Enabled:=false;
- TimerWash.Enabled:=false;
- TimerFany.Enabled:=false;
- TimerSon.Enabled:=false;
- TimerHeath.Enabled:=false;
-end;
-
+///Сохранение прогресса в игре\\\
 procedure TForm4.Button1Click(Sender: TObject);
 begin
- ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\play_cat\save.ini');
+ ini := TIniFile.Create('save\play_cat\save.ini');
   ini.WriteInteger('Sect', 'Food', f);
   ini.WriteInteger('Sect', 'Water', w);
   ini.WriteInteger('Sect', 'Toilet', t);
@@ -323,6 +382,7 @@ begin
  TimerSon.Enabled:=false;
  TimerHeath.Enabled:=false;
 end;
+
 ///Игровая валюта\\\
 procedure TForm4.gamemoney();
 begin
@@ -334,7 +394,8 @@ begin
   score+=1;
   money.Caption:=IntToStr(score);
 end;
-///Система инвентаря\\\
+
+///Система инвентаря\\\- вырезанно 17.04.2017
 procedure TForm4.Button3Click(Sender: TObject);
 begin
  ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\play_cat\save.ini');

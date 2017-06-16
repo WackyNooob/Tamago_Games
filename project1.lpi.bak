@@ -16,7 +16,8 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <BuildNr Value="1"/>
+      <AutoIncrementBuild Value="True"/>
+      <RevisionNr Value="3"/>
       <Language Value="0419"/>
       <Attributes pvaPrivateBuild="True"/>
       <StringTable ProductVersion=""/>
@@ -86,6 +87,7 @@
         <Filename Value="unit8.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit8"/>
       </Unit6>
@@ -93,6 +95,7 @@
         <Filename Value="unit9.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form8"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit9"/>
       </Unit7>

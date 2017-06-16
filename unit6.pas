@@ -42,7 +42,7 @@ uses Unit4;
 
 procedure TForm6.Button2Click(Sender: TObject);
 begin
-  ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\save.ini');
+  ini := TIniFile.Create(ExtractFilePath(ParamStr(0))+'save\play_cat\save.ini');
   ini.WriteInteger('Sect', 'Food', f);
   ini.WriteInteger('Sect', 'Water', w);
   ini.WriteInteger('Sect', 'Toilet', t);

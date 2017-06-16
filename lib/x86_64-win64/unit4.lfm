@@ -4,8 +4,8 @@ object Form4: TForm4
   Top = 185
   Width = 528
   Caption = 'Тамагочи. Игра за котика.'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 393
+  ClientWidth = 528
   OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '1.6.0.4'
@@ -289,6 +289,7 @@ object Form4: TForm4
     Height = 26
     Top = 280
     Width = 26
+    OnClick = Image11Click
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963D60C000089504E47
       0D0A1A0A0000000D494844520000001A0000001A0806000000A94A4CCE000000
@@ -401,6 +402,7 @@ object Form4: TForm4
     Height = 26
     Top = 319
     Width = 26
+    OnClick = Image12Click
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963E802000089504E47
       0D0A1A0A0000000D494844520000001A0000001A0806000000A94A4CCE000000
@@ -566,6 +568,7 @@ object Form4: TForm4
     Height = 26
     Top = 360
     Width = 26
+    OnClick = Image20Click
     Picture.Data = {
       0A544A706567496D616765F0030000FFD8FFE000104A46494600010101006000
       600000FFFE003C43524541544F523A2067642D6A7065672076312E3020287573
@@ -641,7 +644,7 @@ object Form4: TForm4
     ParentColor = False
   end
   object Label1: TLabel
-    Left = 448
+    Left = 440
     Height = 15
     Top = 8
     Width = 37
@@ -658,42 +661,49 @@ object Form4: TForm4
     TabOrder = 0
   end
   object TimerEda: TTimer
+    Enabled = False
     Interval = 1700
     OnTimer = TimerEdaTimer
     left = 8
     top = 8
   end
   object TimerWater: TTimer
+    Enabled = False
     Interval = 1100
     OnTimer = TimerWaterTimer
     left = 48
     top = 8
   end
   object TimerToilet: TTimer
+    Enabled = False
     Interval = 1800
     OnTimer = TimerToiletTimer
     left = 88
     top = 8
   end
   object TimerWash: TTimer
+    Enabled = False
     Interval = 1800
     OnTimer = TimerWashTimer
     left = 128
     top = 8
   end
   object TimerFany: TTimer
+    Enabled = False
     Interval = 1900
     OnTimer = TimerFanyTimer
     left = 168
     top = 8
   end
   object TimerSon: TTimer
+    Enabled = False
     Interval = 1700
     OnTimer = TimerSonTimer
     left = 208
     top = 8
   end
   object TimerHeath: TTimer
+    Enabled = False
     Interval = 100
     OnTimer = TimerHeathTimer
     left = 248

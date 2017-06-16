@@ -53,8 +53,8 @@ object MainForm: TMainForm
     Left = 0
     Height = 15
     Top = 368
-    Width = 254
-    Caption = 'Tamago Game. Alpha build. v0.2.3. more bug fix'
+    Width = 313
+    Caption = 'Tamago Game. Alpha build. v0.3 more bug fix, new update.'
     ParentColor = False
     OnClick = Label1Click
   end

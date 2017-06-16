@@ -40,7 +40,7 @@ var
   b:integer;
 
 implementation
-
+uses Unit1;
 {$R *.lfm}
 
 { TForm1 }
